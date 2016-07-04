@@ -9,7 +9,7 @@ var parseJSON = function(json) {
   		return Boolean(json);
   	case /^[-+]?\d*\.?\d+([eE][-+]?\d+)?$/.test(json): //number
   		return +json;
-	case /['"][^]*['"]/.test(json): //string
+	case /$['"][^]*['"]^/.test(json): //string
 		return json.slice(1,json.length-1);
 	case 'object':
 		var str = '';
