@@ -4,13 +4,13 @@
 // but you're not, so you'll write it from scratch:
 var parseJSON = function(json) {
   // your code goes here
-  switch(json) {
-  	case /^true|false$/:
+  switch(true) {
+  	case /^true|false$/.test(json):
   		return Boolean(json);
-  	case /^[-+]?\d*\.?\d+([eE][-+]?\d+)?$/: //number
+  	case /^[-+]?\d*\.?\d+([eE][-+]?\d+)?$/.test(json): //number
   		return +json;
-	case 'string':
-		return '\"' + obj + '\"';
+	case /['"][^]*['"]/.test(json): //string
+		return json.slice(1,json.length-1);
 	case 'object':
 		var str = '';
 		if(Array.isArray(obj)) {
@@ -39,6 +39,6 @@ var parseJSON = function(json) {
 		}
 		return str;
 	default: 
-		return;
+		return; //invalid inpiut
   }
 };
