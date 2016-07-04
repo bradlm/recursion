@@ -5,7 +5,6 @@
 
 var stringifyJSON = function(obj) {
   // your code goes here
-  console.log(typeof obj)
   switch(typeof obj) {
   	case 'boolean':
   	case 'number':
