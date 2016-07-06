@@ -5,13 +5,22 @@
 var parseJSON = function(json) {
   // your code goes here
   switch(true) {
-  	case /^true|false$/.test(json):
+  	case /^true|false$/.test(json): //bool
   		return Boolean(json);
   	case /^[-+]?\d*\.?\d+([eE][-+]?\d+)?$/.test(json): //number
   		return +json;
-	case /$['"][^]*['"]^/.test(json): //string
+	case /^['"][^]*['"]$/.test(json): //string
 		return json.slice(1,json.length-1);
-	case 'object':
+	case /^\[[^]*\]$/.test(json):
+		var contents = /([,\[][^],)/; //not done
+	case /^\{[[^]*\}$/.test(json):
+
+
+
+
+
+
+
 		var str = '';
 		if(Array.isArray(obj)) {
 			if(obj.length === 0) {
